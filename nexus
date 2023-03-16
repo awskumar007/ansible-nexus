@@ -8,7 +8,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: nexus
-short_description: Download and install an artifact from storage.
+short_description: Download and install an artifact from the storage.
     See https://github.com/mihxil/ansible-nexus
 author: Michiel Meeuwissen, Marc Bosserhoff, Rostyslav Fridman, Giles Westwood
 options:
@@ -79,7 +79,7 @@ from wsgiref.handlers import format_date_time
 import xml.etree.ElementTree as ET
 
 
-# download an artifact from nexus or artifactory
+# download an artifact from the nexus or artifactory
 def loadArtifact(url, dest, http_user, http_pass, force, remote_md5_different):
 
     result = dict(url=url, http_user=http_user, force=force)
