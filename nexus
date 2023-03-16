@@ -8,7 +8,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: nexus
-short_description: Download and install an artifact from the storage.
+short_description: Download and install an artifact from this storage.
     See https://github.com/mihxil/ansible-nexus
 author: Michiel Meeuwissen, Marc Bosserhoff, Rostyslav Fridman, Giles Westwood
 options:
@@ -87,7 +87,7 @@ def loadArtifact(url, dest, http_user, http_pass, force, remote_md5_different):
     try:
         headers = {}
 
-        # Support if modified header if not using 'force' flag or if md5 is detected as different from remote
+        # Support if modified header if not using 'force' flag or if md5 is detected as different from the remote
         # to always download artifacts
         if os.path.isfile(dest) and not force and not remote_md5_different:
             headers['IF-Modified-Since'] = \
@@ -136,7 +136,7 @@ def loadArtifact(url, dest, http_user, http_pass, force, remote_md5_different):
         raise e
 
 
-# query nexus for the md5sum of an artifact
+# query the nexus for md5sum of an artifact
 def get_remote_md5(nexus, artifactory, url, http_user, http_pass):
     if artifactory:
         result = 'unsupported'
